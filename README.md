@@ -15,13 +15,13 @@ Built entirely on pi's native provider primitives: no custom commands, tools, or
 
 ```bash
 # From git
-pi install git:github.com/<you>/pi-9router@v1
+pi install git:github.com/bejorock/pi-9router
 
 # From npm
 pi install npm:pi-9router
 
 # Local / development
-git clone https://github.com/<you>/pi-9router
+git clone https://github.com/bejorock/pi-9router
 pi install /path/to/pi-9router
 ```
 
