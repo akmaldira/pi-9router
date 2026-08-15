@@ -1,0 +1,30 @@
+{
+  "name": "pi-9router",
+  "version": "0.1.0",
+  "description": "Register 9router (an OpenAI-compatible AI routing proxy) as a native provider for pi, with dynamic model discovery.",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "9router",
+    "ai-router",
+    "openai-proxy"
+  ],
+  "license": "MIT",
+  "author": "Rana Lubis <rana.lubis@gmail.com>",
+  "type": "module",
+  "main": "./src/index.ts",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-ai": "*"
+  }
+}
