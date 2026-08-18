@@ -229,10 +229,13 @@ export default function (pi: ExtensionAPI) {
   pi.registerTool({
     name: "ninerouter_web_search",
     label: "Web Search",
-    description: "Search the web and return a list of results with URLs, titles, and snippets.",
-    promptSnippet: "Search the web for up-to-date information",
+    description: "Search the web for real-time information. Use this to research current events, recent news, documentation, or any topic that may be outdated or absent in training data. Returns a ranked list of results with URLs, titles, authors, and snippets.",
+    promptSnippet: "Search the web for real-time, up-to-date information and online research",
     promptGuidelines: [
-      "Use web_search when the user asks for current events, recent news, or information that may not be in your training data.",
+      "Use ninerouter_web_search when the user asks about current events, recent news, live data, or anything that may not be in your training data.",
+      "Use ninerouter_web_search to research a topic online before answering — especially for technical docs, pricing, changelogs, or fast-moving domains like AI.",
+      "Prefer search_type=\"news\" for recent events and search_type=\"web\" for general research.",
+      "After getting search results, use ninerouter_web_fetch on the most relevant URL to get full article content.",
     ],
     parameters: Type.Object({
       query: Type.String({ description: "Search query" }),
@@ -270,10 +273,11 @@ export default function (pi: ExtensionAPI) {
   pi.registerTool({
     name: "ninerouter_web_fetch",
     label: "Web Fetch",
-    description: "Fetch and return the full content of a single URL as markdown.",
-    promptSnippet: "Fetch the full content of a URL",
+    description: "Fetch and return the full readable content of a single URL as markdown. Use this after ninerouter_web_search to read the full article, documentation page, or any webpage in detail.",
+    promptSnippet: "Fetch the full content of a URL as readable markdown for in-depth research",
     promptGuidelines: [
-      "Use web_fetch to read the full content of a specific URL found via web_search or provided by the user.",
+      "Use ninerouter_web_fetch to read the full content of a URL found via ninerouter_web_search or provided by the user.",
+      "Use ninerouter_web_fetch when a snippet from search results is not enough and you need the complete article or page content.",
     ],
     parameters: Type.Object({
       url: Type.String({ description: "The URL to fetch" }),
